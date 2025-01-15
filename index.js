@@ -1,4 +1,3 @@
-import path from "path";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -25,14 +24,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cookieParser());
 app.use(express.json({ limit: "10mb" }));
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-}
 
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
