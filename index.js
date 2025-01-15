@@ -16,7 +16,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "https://e-commerce-pi-dun-28.vercel.app/",
+    origin: "https://e-commerce-pi-dun-28.vercel.app",
     credentials: true,
   })
 );
